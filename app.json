@@ -1,92 +1,91 @@
 {
-  "name": "heroku",
-  "description": "Telegram Group Calls streaming bot with some useful features, written in Python with Pyrogram and Py-Tgcalls. Supporting platforms like Youtube, Spotify, Resso, AppleMusic, Soundcloud and M3u8 Links.",
-  "logo": "https://telegra.ph/file/c0e014ff34f34d1056627.png",
-  "keywords": [
-    "python3",
-    "telegram",
-    "bot",
-    "telegram-bot",
-    "pyrogram"
-  ],
-  "stack": "container",
-  "env": {
+    "name": "Arch",
+    "description": "Telegram Group Management Bot.",
+    "keywords": [
+       "telegram",
+       "modular",
+       "group",
+       "manager"
+    ],   
+ "repository": "https://github.com/KYAKRU/archmanagement",
+ "stack": "heroku-22",
+ "addons": [
+    {
+       "options": {
+          "version": "12"
+       },
+       "plan": "heroku-postgresql"
+    }
+ ],
+ "env": {
     "API_ID": {
-      "description": "Get this value from https://my.telegram.org",
-      "value": "",
-      "required": true
+       "description": "Get this value from my.telegram.org/apps.",
+       "required": true,
+       "value": ""
     },
     "API_HASH": {
-      "description": "Get this value from https://my.telegram.org",
-      "value": "",
-      "required": true
+       "description": "Get this value from my.telegram.org/apps.",
+       "required": true,
+       "value": ""
     },
-    "AUTO_LEAVING_ASSISTANT": {
-      "description": "If you want your assistant to leave all chats automatically after some time.",
-      "value": "false",
-      "required": false
+    "ALLOW_EXCL": {
+       "description": "Set this to True if you want ! to be a command prefix along with /. Recommended is True",
+       "value": "True"
     },
-    "BOT_TOKEN": {
-      "description": "A Bot's token from Botfather",
-      "value": "",
-      "required": true
+    "DEL_CMDS": {
+       "description": "Set this to True if you want to delete command messages from users who don't have the perms to run that command.",
+       "value": "True"
+    },
+    "ENV": {
+       "description": "Setting this to ANYTHING will enable environment variables. Leave it as it is",
+       "required": true,
+       "value": "True"
+    },
+    "EVENT_LOGS": {
+       "description": "Event logs channel to note down important bot level events, recommend to make this public. ex: '-123456'",
+       "required": true,
+       "value": ""
     },
     "MONGO_DB_URI": {
-      "description": "Get a mongodb url from https://cloud.mongodb.com . You can leave it blank if you want , bot will use Our database for you.",
-      "value": "",
-      "required": true
+       "description": "Required for database connections.",
+       "required": true,
+       "value": ""
     },
-    "MUSIC_BOT_NAME": {
-      "description": "A name for your Music Bot. Please don't use ascii characters",
-      "value": "",
-      "required": true
+    "CASH_API_KEY": {
+        " description": " Get your API key from https://www.alphavantage.co/support/#api-key",
+        "required": false,
+        "value": "D0ZCZ67KL8OTL0PY"
     },
+    "TIME_API_KEY": {
+        "description": " Get your API key from https://timezonedb.com/api",
+        "required": false,
+        "value": "5LB4TAKPEKZ0"
+    },
+    "CHATBOT_API": {
+        "description":"Get your API key from @FallenChat_Bot using /token",
+        "required": false,
+        "value": "5218610039-fallen-lrqj44jqrl"
+    },
+        
     "OWNER_ID": {
-      "description": "The user id(s) of user(s) whom you would like to add as a OWNER. Multiple values shall be separated with a space.",
-      "value": "",
-      "required": true
+       "description": "Your user ID as an integer.",
+       "required": true,
+       "value": "5218610039"
     },
-    "STRING_SESSION": {
-      "description": "A Pyrogram String Session. One Assistant is Compulsory.",
-      "value": "",
-      "required": true
+    "START_IMG": {
+       "description": "Telegraph link of the image which will be shown at start command.",
+       "required": true,
+       "value": "https://telegra.ph/file/1857ed2e339642e1be3a9.jpg"
     },
-    "HEROKU_API_KEY": {
-      "description": "Your Heroku account's API key",
-      "value": "",
-      "required": false
+    "SUPPORT_CHAT": {
+       "description": "Your Telegram support group chat username where your users will go and bother you with shit Example - The_support_chat.",
+       "required": true,
+       "value": "arch_supports"
     },
-    "HEROKU_APP_NAME": {
-      "description": "Your heroku app/bot's name",
-      "value": "",
-      "required": false
-    },
-    "LOG_GROUP_ID": {
-      "description": "Your Log Group ID, add your bot and promote as an admin with full rights!. Use only Group. Please don't use Channel ID.",
-      "value": "",
-      "required": true
-    },
-    "UPSTREAM_REPO": {
-      "description": "If you dont know this, Leave as it is",
-      "value": "https://github.com/ArchBots/ArchMusic",
-      "required": true
+    "TOKEN": {
+       "description": "Get bot token from @BotFather on TG",
+       "required": true,
+       "value": ""
     }
-  },
-  "buildpacks": [
-    {
-      "url": "heroku/python"
-    },
-    {
-      "url": "heroku/nodejs"
-    },
-    {
-      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+ }
     }
-  ],
-  "formation": {
-    "worker": {
-      "quantity": 1,
-      "size": "eco"
-    }
-  }
-  }
